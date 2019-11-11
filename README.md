@@ -23,7 +23,7 @@ index	sentence	a_type
 This repository's scripts based on https://github.com/google-research/bert .
 Use them on BERT dir.
 
-- BERT fine-tuning
+#### BERT fine-tuning
 
 ```
 python run_classifier_Atype.py \
@@ -36,7 +36,7 @@ python run_classifier_Atype.py \
 --num_train_epochs=3.0 --output_dir=./result/atype/ --do_lower_case=false
 ```
 
-- Predict for test dataset
+#### Predict for test dataset
 
 By runnning this command, you can obtain `test_results.tsv` on your output_dir.
 
@@ -50,7 +50,7 @@ python run_classifier_Atype.py \
 ```
 
 
-- evaluation 
+#### evaluation 
 
 This code outputs accuracy and confusion map of test prediction.
 Before running it, you need to add the header to `test_results.tsv`
