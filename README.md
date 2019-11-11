@@ -1,4 +1,4 @@
-## BERT_answer_type_classification
+## BERT Answer Type Classification
 sentence classification for answer type(sent, phrase, word, num, other)
 
 ### Implemention Environment
