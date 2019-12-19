@@ -23,6 +23,21 @@ index	sentence	a_type
 This repository's scripts based on https://github.com/google-research/bert .
 Use them on BERT dir.
 
+#### data split for cross-validation set
+By runnning this command, you can obtain N splits dataset on your output_dir.
+
+```
+$ python data_split.py --input ./a_type_all_v1.4.tsv --outputdir ./atype_dataset/ --k 10 --wakati
+```
+
+```
+Option Memo
+--input: ALL samples tsv file
+--outputdir: save directory
+--k: num of split
+--wakati: if you use this option, you can get tokenized sample's file and use this file for split
+```
+
 #### BERT fine-tuning
 
 ```
