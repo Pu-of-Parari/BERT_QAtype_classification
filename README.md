@@ -1,5 +1,5 @@
-## BERT Answer Type Classification
-sentence classification for answer type(sent, phrase, word, num, other)
+## BERT QA Type Classification
+sentence classification for answer type(sent, phrase, word, num, other) and question type(habit, point, howto, feature, cause)
 
 ### Implemention Environment
 ```
@@ -38,11 +38,25 @@ Option Memo
 --wakati: if you use this option, you can get tokenized sample's file and use this file for split
 ```
 
-#### BERT fine-tuning
+#### BERT fine-tuning for classifier Answer Type
 
 ```
 python run_classifier_Atype.py \
 --task_name=ATYPE --do_train=true \
+--do_eval=true --data_dir=./$DATASET_DIR \
+--vocab_file=multi_cased_L-12_H-768_A-12/vocab.txt \
+--bert_config_file=multi_cased_L-12_H-768_A-12/bert_config.json \
+--init_checkpoint=multi_cased_L-12_H-768_A-12/bert_model.ckpt \
+--max_seq_length=128 --train_batch_size=32 --learning_rate=2e-5 \
+--num_train_epochs=3.0 --output_dir=./result/atype/ --do_lower_case=false
+```
+
+
+#### BERT fine-tuning for classifier Question Type
+
+```
+python run_classifier_Qtype.py \
+--task_name=QTYPE --do_train=true \
 --do_eval=true --data_dir=./$DATASET_DIR \
 --vocab_file=multi_cased_L-12_H-768_A-12/vocab.txt \
 --bert_config_file=multi_cased_L-12_H-768_A-12/bert_config.json \
