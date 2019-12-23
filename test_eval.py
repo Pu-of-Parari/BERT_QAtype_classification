@@ -2,6 +2,7 @@ import pandas as pd
 import seaborn as sns
 from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
+import argparse
 
 """run_classifier_Atype.pyのtest出力結果の評価
 input << "./test_results.tsv" :モデル出力ファイル
@@ -99,8 +100,13 @@ def print_cmx(y_pred_, y_true_):
 
 
 if __name__ == "__main__":
-    p_data = predLoader("./test_results.tsv")
-    i_data = testDatasetLoader("./atype_test.tsv")
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--pred', type=str)
+    parser.add_argument('--test', type=str)
+    args = parser.parse_args()
+    
+    p_data = predLoader(args.pred)
+    i_data = testDatasetLoader(args.test)
 
     evaluation(p_data, i_data)
 
